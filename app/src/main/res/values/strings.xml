@@ -14,6 +14,13 @@
     <string name="btLimparCadVeiculo">Limpar</string>
     <string name="btCadastrarVeiculo">Novo</string>
     <string name="btSobreApp">Sobre</string>
+    <string name="txAutoria">Autoria</string>
+    <string name="txNomeAluno">Aluno: Pedro Henrique Wolf Brito</string>
+    <string name="txCursoAluno">Curso: Especialização - Tecnologia Java</string>
+    <string name="txEmailAluno">E-mail: phwolfbrito@gmail.com</string>
+    <string name="txDescricaoSobreApp">O aplicativo Gerenciador Caranga tem o objetivo de ajudar os usuários registrar, visualizar e ter controle sobre os gastos de seus veículos, ajudando em posteriores tomadas de decisão pelo dono do veículo</string>
+    <string name="txCampusSobre">Campus de Cornélio Procópio</string>
+
     <string name="title_activity_principal">PrincipalActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

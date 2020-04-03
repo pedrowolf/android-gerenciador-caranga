@@ -48,17 +48,19 @@ public class PrincipalActivity extends AppCompatActivity {
 
     public void btCadVeiculoClick(View view) {
         Intent it = new Intent(this, CadastroActivity.class);
-        startActivity(it);
+        startActivityForResult(it,1);
     }
 
     public void btSobreApp(View view) {
+        Intent it = new Intent(this, AutoriaActivity.class);
+        startActivity(it);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == Activity.RESULT_OK){
+        if(resultCode == Activity.RESULT_OK && requestCode == 1){
             final Bundle b = data.getExtras();
             if(b != null){
                 runOnUiThread(new Runnable() {
@@ -67,7 +69,6 @@ public class PrincipalActivity extends AppCompatActivity {
                         Veiculo v = (Veiculo) b.getSerializable("VEICULO");
                         veiculos.add(v);
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(PrincipalActivity.this,"Veiculo salvo com Sucesso!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
