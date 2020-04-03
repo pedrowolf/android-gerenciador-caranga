@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="apelidos">
+        <item>Corsa Prata</item>
+        <item>Gol Preto</item>
+        <item>Camaro Branco</item>
+        <item>Ka Sedan</item>
+        <item>Ka Hatch</item>
+        <item>Fiesta Rocam</item>
+        <item>Uno Advantage</item>
+        <item>Virtus Branco</item>
+        <item>Corolla Preto</item>
+        <item>Fit CVT</item>
+    </string-array>
+
+    <integer-array name="anos">
+        <item>2011</item>
+        <item>2010</item>
+        <item>2017</item>
+        <item>2019</item>
+        <item>2019</item>
+        <item>2009</item>
+        <item>2008</item>
+        <item>2018</item>
+        <item>2016</item>
+        <item>2007</item>
+    </integer-array>
+
+    <string-array name="montadoras">
+        <item>GM</item>
+        <item>VW</item>
+        <item>GM</item>
+        <item>Ford</item>
+        <item>Ford</item>
+        <item>Ford</item>
+        <item>Fiat</item>
+        <item>VW</item>
+        <item>Toyota</item>
+        <item>Honda</item>
+    </string-array>
+
+    <string-array name="combustiveis">
+        <item>Flex</item>
+        <item>Gasolina</item>
+        <item>Gasolina</item>
+        <item>Flex</item>
+        <item>Flex</item>
+        <item>Flex</item>
+        <item>Flex</item>
+        <item>Flex</item>
+        <item>Flex</item>
+        <item>Flex</item>
+    </string-array>
+</resources>
