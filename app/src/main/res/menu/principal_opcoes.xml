@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menuitem_novo"
+        android:icon="@drawable/ic_add_circle_outline_black_24dp"
+        android:title="@string/menuItemNovoPrincipal"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/menuitem_sobre"
+        android:title="@string/menuItemSobrePrincipal" />
+    <item
+        android:id="@+id/menuitem_principal_configuracoes"
+        android:icon="@android:drawable/ic_menu_manage"
+        android:title="@string/menuItemConfiguracoes"
+        app:showAsAction="ifRoom|withText" />
+</menu>

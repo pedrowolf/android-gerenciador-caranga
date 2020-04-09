@@ -12,16 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pedro.gerenciadorcaranga.R;
+import com.pedro.gerenciadorcaranga.activity.PrincipalActivity;
 import com.pedro.gerenciadorcaranga.domain.Veiculo;
 
 import java.util.List;
+import java.util.Observable;
 
 public class VeiculoAdapter extends RecyclerView.Adapter<VeiculoAdapter.MyHolder> {
 
     private List<Veiculo> veiculos;
+    private PrincipalActivity activity;
 
-    public VeiculoAdapter(List<Veiculo> veiculos){
+    public VeiculoAdapter(List<Veiculo> veiculos, PrincipalActivity activity){
         this.veiculos = veiculos;
+        this.activity = activity;
     }
 
     @NonNull
@@ -68,11 +72,14 @@ public class VeiculoAdapter extends RecyclerView.Adapter<VeiculoAdapter.MyHolder
             txtMontadora = itemView.findViewById(R.id.txtMontadoraVeiculoItem);
             txtCombustivel = itemView.findViewById(R.id.txtCombustivelVeiculoItem);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
-                public void onClick(View v) {
+                public boolean onLongClick(View v) {
                     Veiculo veic = veiculos.get(getAdapterPosition());
-                    Toast.makeText(v.getContext(), "Selecionou "+veic.getApelido()+" - "+veic.getMontadora(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(v.getContext(), "Selecionou "+veic.getApelido()+" - "+veic.getMontadora(), Toast.LENGTH_SHORT).show();
+                    activity.positionSelected = getAdapterPosition();
+                    activity.startContextualMenu();
+                    return true;
                 }
             });
         }

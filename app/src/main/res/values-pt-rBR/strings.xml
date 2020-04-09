@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gerenciador Caranga</string>
+    <string name="txtApelidoVeiculo">Apelido do Veículo</string>
+    <string name="txtKmCadVeiculo">Km Rodado do Veículo</string>
+    <string name="txtDonoCadVeiculo">Dono do Veículo</string>
+    <string name="txtAnoCadVeiculo">Ano do Veículo</string>
+    <string name="txtMontadoraCadVeiculo">Montadora do Veículo</string>
+    <string name="txtTipoCombustivelCadVeiculo">Combustível do Veículo</string>
+    <string name="rbtGasolinaCadVeiculo">Gasolina</string>
+    <string name="rbtDieselCadVeiculo">Diesel</string>
+    <string name="rbtFlexCadVeiculo">Flex</string>
+    <string name="txtAtivoCadVeiculo">Status do Veículo</string>
+    <string name="txAutoria">Autoria</string>
+    <string name="txNomeAluno">Aluno: Pedro Henrique Wolf Brito</string>
+    <string name="txCursoAluno">Curso: Especialização - Tecnologia Java</string>
+    <string name="txEmailAluno">E-mail: phwolfbrito@gmail.com</string>
+    <string name="txDescricaoSobreApp">O aplicativo Gerenciador Caranga tem o objetivo de ajudar os usuários registrar, visualizar e ter controle sobre os gastos de seus veículos, ajudando em posteriores tomadas de decisão pelo dono do veículo</string>
+    <string name="txCampusSobre">Campus de Cornélio Procópio</string>
+    <string name="menuItemNovoPrincipal">Novo</string>
+    <string name="menuItemSobrePrincipal">Sobre</string>
+    <string name="menuItemSalvarCadVeiculo">Salvar</string>
+    <string name="menuItemLimparCadVeiculo">Limpar</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="menuItemEditarContextual">Editar</string>
+    <string name="menuItemExcluirContextual">Remover</string>
+    <string name="titleAcitivityCadastroVeiculo">Inserindo</string>
+    <string name="titleAcitivityEditarVeiculo">Editando</string>
+    <string name="messagePreenchaCampos">Preencha os Campos</string>
+    <string name="messageVeiculoSalvo">Veículo Salvo</string>
+    <string name="chkCheckedTrue">Ativo</string>
+    <string name="chkCheckedFalse">Inativo</string>
+    <string name="menuItemConfiguracoes">Configurações</string>
+    <string name="txtConfigChkStatus">Valor padrão do Status do Veículo</string>
+</resources>
