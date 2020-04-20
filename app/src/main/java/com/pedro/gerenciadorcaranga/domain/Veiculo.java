@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Veiculo implements Serializable {
 
+    private Integer id;
+
     private String apelido;
 
     private String dono;
@@ -18,7 +20,8 @@ public class Veiculo implements Serializable {
 
     private Boolean ativo;
 
-    public Veiculo(String apelido, String dono, Integer kmRodado, String tipoCombustivel, String montadora, Integer ano, Boolean ativo) {
+    public Veiculo(Integer id, String apelido, String dono, Integer kmRodado, String tipoCombustivel, String montadora, Integer ano, Boolean ativo) {
+        this.id = id;
         this.apelido = apelido;
         this.dono = dono;
         this.kmRodado = kmRodado;
@@ -30,6 +33,14 @@ public class Veiculo implements Serializable {
 
     public Veiculo() {
 
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getApelido() {

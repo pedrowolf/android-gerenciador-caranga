@@ -12,7 +12,7 @@
         android:title="@string/menuItemSobrePrincipal" />
     <item
         android:id="@+id/menuitem_principal_configuracoes"
-        android:icon="@android:drawable/ic_menu_manage"
+        android:icon="@drawable/ic_build_black_24dp"
         android:title="@string/menuItemConfiguracoes"
         app:showAsAction="ifRoom|withText" />
 </menu>

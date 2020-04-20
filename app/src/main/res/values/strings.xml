@@ -33,5 +33,19 @@
     <string name="chkCheckedFalse">Inactive</string>
     <string name="menuItemConfiguracoes">Configurations</string>
     <string name="txtConfigChkStatus">Default Value of Vehicle Status</string>
+    <string name="titleActivityGastos">Vehicle Spents</string>
+    <string name="btFilter">Filter</string>
+    <string name="editDtInicial">Initial Date</string>
+    <string name="editDtFinal">Final Date</string>
+    <string name="txtFilterDescript">Filter by inital and final date:</string>
+    <string name="txtDescGastoCad">Spent Description</string>
+    <string name="txtDtGastoCad">Spent Date</string>
+    <string name="messageInvalidDates">Invalid Dates</string>
+    <string name="txtSpentValueCadGasto">Spent Value</string>
+    <string name="messageRemoverVeiculo">Removing the vehicle also removes all your expenses, are you sure?</string>
+    <string name="positiveButton">Yes</string>
+    <string name="negativeButton">No</string>
+    <string name="titleConfig">Settings</string>
+    <string name="messageRemoverGasto">Do you want to remove this spent?</string>
 
 </resources>

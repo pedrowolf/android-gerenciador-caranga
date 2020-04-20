@@ -1,6 +1,8 @@
 package com.pedro.gerenciadorcaranga.adapter;
 
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.pedro.gerenciadorcaranga.R;
+import com.pedro.gerenciadorcaranga.activity.GastosActivity;
 import com.pedro.gerenciadorcaranga.activity.PrincipalActivity;
 import com.pedro.gerenciadorcaranga.domain.Veiculo;
 
@@ -52,6 +55,7 @@ public class VeiculoAdapter extends RecyclerView.Adapter<VeiculoAdapter.MyHolder
 
     public void setVeiculos(List<Veiculo> veiculos) {
         this.veiculos = veiculos;
+        notifyDataSetChanged();
     }
 
     public List<Veiculo> getVeiculos() {
@@ -80,6 +84,17 @@ public class VeiculoAdapter extends RecyclerView.Adapter<VeiculoAdapter.MyHolder
                     activity.positionSelected = getAdapterPosition();
                     activity.startContextualMenu();
                     return true;
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent it = new Intent(activity, GastosActivity.class);
+                    Bundle b = new Bundle();
+                    b.putSerializable("veiculo", veiculos.get(getAdapterPosition()));
+                    it.putExtras(b);
+                    activity.startActivity(it);
                 }
             });
         }

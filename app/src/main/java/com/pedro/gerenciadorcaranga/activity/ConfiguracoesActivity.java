@@ -31,6 +31,7 @@ public class ConfiguracoesActivity extends AppCompatActivity {
             switchConfigStatus.setText(getString(R.string.chkCheckedFalse));
         }
 
+        setTitle(getString(R.string.titleConfig));
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }

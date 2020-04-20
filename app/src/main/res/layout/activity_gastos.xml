@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.GastosActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewApelidoVeiculoGastos"
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textSize="16dp"
+        android:text="@string/txtFilterDescript"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="8dp"
+        android:layout_margin="10dp"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/editTextDtInicialGasto"
+            android:layout_width="wrap_content"
+            android:hint="@string/editDtInicial"
+            android:ems="6"
+            android:layout_height="wrap_content"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/editTextDtFinalGasto"
+            android:layout_width="wrap_content"
+            android:hint="@string/editDtFinal"
+            android:ems="6"
+            android:layout_height="wrap_content"
+            android:inputType="date" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btFilter"
+            android:ems="6"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#FFFFFF"
+            android:onClick="filterSpents"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTotalGastos"
+        android:textSize="24dp"
+        android:textColor="#ba0032"
+        android:textAlignment="textEnd"
+        android:text="00.00"
+        android:layout_marginEnd="10dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewGastos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>

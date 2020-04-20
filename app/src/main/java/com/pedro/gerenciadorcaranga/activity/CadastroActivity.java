@@ -40,6 +40,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     public static Veiculo veiculo = null;
     private static String activityMode = "";
+    private static Integer idUpdate = 0;
     private static int indexOfEditItem = -1;
 
     @Override
@@ -94,6 +95,7 @@ public class CadastroActivity extends AppCompatActivity {
         }else{
             setTitle(getString(R.string.titleAcitivityEditarVeiculo));
             Veiculo v = (Veiculo) b.getSerializable("VEICULO");
+            idUpdate = v.getId();
             initActivityModeEdit(v);
         }
 
@@ -195,7 +197,8 @@ public class CadastroActivity extends AppCompatActivity {
             }else{
                 combustivel = "Gasolina";
             }
-            veiculo = new Veiculo(editApelido.getText().toString(),editDono.getText().toString(),Integer.parseInt(editKmRodado.getText().toString()),combustivel, spinnerMontadora.getSelectedItem().toString(), Integer.parseInt(editAno.getText().toString()),chkAtivo.isChecked());
+            veiculo = new Veiculo(idUpdate, editApelido.getText().toString(),editDono.getText().toString(),Integer.parseInt(editKmRodado.getText().toString()),combustivel, spinnerMontadora.getSelectedItem().toString(), Integer.parseInt(editAno.getText().toString()),chkAtivo.isChecked());
+
             Toast.makeText(this,getString(R.string.messageVeiculoSalvo),Toast.LENGTH_SHORT).show();
             Intent it = new Intent();
             Bundle b = new Bundle();

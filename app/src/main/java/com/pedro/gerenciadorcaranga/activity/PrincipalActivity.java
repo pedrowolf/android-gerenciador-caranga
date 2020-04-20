@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -25,10 +27,15 @@ import android.widget.Toast;
 
 import com.pedro.gerenciadorcaranga.R;
 import com.pedro.gerenciadorcaranga.adapter.VeiculoAdapter;
+import com.pedro.gerenciadorcaranga.dao.RoomDatabaseFactory;
+import com.pedro.gerenciadorcaranga.dao.SQLiteFactoryOpenHelper;
+import com.pedro.gerenciadorcaranga.dao.VeiculoDAO;
+import com.pedro.gerenciadorcaranga.domain.Gasto;
 import com.pedro.gerenciadorcaranga.domain.Veiculo;
 import com.pedro.gerenciadorcaranga.util.CarangaConstants;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -37,7 +44,9 @@ public class PrincipalActivity extends AppCompatActivity {
     private RecyclerView recyclerVeiculos;
     private RecyclerView.LayoutManager layoutManager;
     private VeiculoAdapter adapter;
-    private ArrayList<Veiculo> veiculos = new ArrayList<>();
+    private List<Veiculo> veiculos = new ArrayList<>();
+
+    private VeiculoDAO dao;
 
     public int positionSelected = -1;
 
@@ -68,8 +77,22 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivityForResult(it,1);
             }else if(item.getItemId() == R.id.menuitem_excluir_contextual){
                 if(positionSelected != -1) {
-                    veiculos.remove(positionSelected);
-                    adapter.notifyDataSetChanged();
+                    new AlertDialog.Builder(PrincipalActivity.this).setTitle("").setMessage(getString(R.string.messageRemoverVeiculo))
+                            .setPositiveButton(getString(R.string.positiveButton), new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    List<Gasto> gastosVeiculo = RoomDatabaseFactory.getInstance(PrincipalActivity.this).gastoDAO().loadAll(veiculos.get(positionSelected).getId());
+                                    for(Gasto g: gastosVeiculo){
+                                        RoomDatabaseFactory.getInstance(PrincipalActivity.this).gastoDAO().remove(g);
+                                    }
+                                    dao.excluir(veiculos.get(positionSelected).getId(), SQLiteFactoryOpenHelper.getInstance(PrincipalActivity.this).getWritableDatabase());
+                                    veiculos = dao.listar(SQLiteFactoryOpenHelper.getInstance(PrincipalActivity.this).getReadableDatabase());
+                                    adapter.setVeiculos(veiculos);
+                                }
+                            })
+                            .setNegativeButton(getString(R.string.negativeButton), null)
+                            .show();
+
                 }
             }
 
@@ -81,6 +104,7 @@ public class PrincipalActivity extends AppCompatActivity {
         @Override
         public void onDestroyActionMode(ActionMode mode) {
             actionMode = null;
+            recyclerVeiculos.setEnabled(true);
         }
     };
 
@@ -97,6 +121,10 @@ public class PrincipalActivity extends AppCompatActivity {
         recyclerVeiculos.setHasFixedSize(true);
         recyclerVeiculos.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
 
+        dao = new VeiculoDAO();
+
+        veiculos = dao.listar(SQLiteFactoryOpenHelper.getInstance(this).getReadableDatabase());
+
         adapter = new VeiculoAdapter(veiculos,this);
 
         recyclerVeiculos.setAdapter(adapter);
@@ -104,6 +132,8 @@ public class PrincipalActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences(CarangaConstants.sharedPreferecensName, Context.MODE_PRIVATE);
 
         preferences.getBoolean("defaultStatusVehicle", true);
+
+
     }
 
     @Override
@@ -157,13 +187,15 @@ public class PrincipalActivity extends AppCompatActivity {
             if(b != null){
                 if(b.getString("ACTIVITY_MODE").equals("INSERT")) {
                     Veiculo v = (Veiculo) b.getSerializable("VEICULO");
-                    veiculos.add(v);
-                    adapter.notifyDataSetChanged();
+                    dao.inserir(v, SQLiteFactoryOpenHelper.getInstance(this).getWritableDatabase());
+                    veiculos = dao.listar(SQLiteFactoryOpenHelper.getInstance(this).getReadableDatabase());
+                    adapter.setVeiculos(veiculos);
                 }else if(b.getString("ACTIVITY_MODE").equals("UPDATE")){
                     Veiculo v = (Veiculo) b.getSerializable("VEICULO");
                     Log.d("PrincipalActivity","position adapter selecionado apra editar: "+positionSelected);
-                    veiculos.set(positionSelected,v);
-                    adapter.notifyDataSetChanged();
+                    dao.alterar(v, SQLiteFactoryOpenHelper.getInstance(this).getWritableDatabase());
+                    veiculos = dao.listar(SQLiteFactoryOpenHelper.getInstance(this).getReadableDatabase());
+                    adapter.setVeiculos(veiculos);
                 }
             }
         }

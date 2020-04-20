@@ -9,11 +9,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ConfiguracoesActivity"
-            android:parentActivityName=".activity.PrincipalActivity"></activity>
-        <activity android:name=".activity.AutoriaActivity"
-            android:parentActivityName=".activity.PrincipalActivity"/>
-        <activity android:name=".activity.CadastroActivity"></activity>
+        <activity android:name=".activity.CadGastoActivity"></activity>
+        <activity
+            android:name=".activity.GastosActivity"
+            android:parentActivityName=".activity.PrincipalActivity" />
+        <activity
+            android:name=".activity.ConfiguracoesActivity"
+            android:parentActivityName=".activity.PrincipalActivity" />
+        <activity
+            android:name=".activity.AutoriaActivity"
+            android:parentActivityName=".activity.PrincipalActivity" />
+        <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

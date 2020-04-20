@@ -32,4 +32,18 @@
     <string name="chkCheckedFalse">Inativo</string>
     <string name="menuItemConfiguracoes">Configurações</string>
     <string name="txtConfigChkStatus">Valor padrão do Status do Veículo</string>
+    <string name="titleActivityGastos">Gastos do Veículo</string>
+    <string name="btFilter">Filtrar</string>
+    <string name="editDtInicial">Data Inicial</string>
+    <string name="editDtFinal">Data Final</string>
+    <string name="txtFilterDescript">Filtrar por data inicial e final:</string>
+    <string name="txtDescGastoCad">Descrição do Gasto</string>
+    <string name="txtDtGastoCad">Data do Gasto</string>
+    <string name="messageInvalidDates">Datas Inválidas</string>
+    <string name="txtSpentValueCadGasto">Valor do Gasto</string>
+    <string name="messageRemoverVeiculo">Removendo o veículo você também remove todos seus gastos, tem certeza ?</string>
+    <string name="positiveButton">Sim</string>
+    <string name="negativeButton">Não</string>
+    <string name="titleConfig">Configurações</string>
+    <string name="messageRemoverGasto">Deseja remover este gasto?</string>
 </resources>
