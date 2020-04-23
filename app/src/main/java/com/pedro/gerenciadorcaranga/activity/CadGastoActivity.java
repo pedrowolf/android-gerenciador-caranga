@@ -116,7 +116,7 @@ public class CadGastoActivity extends AppCompatActivity {
                 g.setId(idUpdate);
                 g.setTimestamp(timestampGasto);
                 g.setVeiculoId(veiculoId);
-                g.setValor(Float.parseFloat(editValor.getText().toString()));
+                g.setValor(Float.parseFloat(editValor.getText().toString().replaceAll(",",".")));
             }
             Intent it = new Intent();
             Bundle b = new Bundle();

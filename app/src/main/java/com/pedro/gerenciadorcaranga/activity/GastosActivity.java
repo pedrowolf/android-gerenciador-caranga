@@ -79,7 +79,7 @@ public class GastosActivity extends AppCompatActivity {
                 Bundle b = new Bundle();
                 b.putString("ACTIVITY_MODE","UPDATE");
                 b.putSerializable("GASTO",gastos.get(positionSelected));
-                b.putInt("veiculoId",gastos.get(positionSelected).getId());
+                b.putInt("veiculoId",gastos.get(positionSelected).getVeiculoId());
                 it.putExtras(b);
                 startActivityForResult(it,1);
             }else if(item.getItemId() == R.id.menuitem_excluir_contextual){
@@ -91,6 +91,7 @@ public class GastosActivity extends AppCompatActivity {
                                     dbFactory.gastoDAO().remove(gastos.get(positionSelected));
                                     gastos = dbFactory.gastoDAO().loadAll(veiculo.getId());
                                     adapter.setGastos(gastos);
+                                    calcTotal();
                                 }
                             })
                             .setNegativeButton(getString(R.string.negativeButton), null)
